@@ -7,6 +7,8 @@
 // May, 2010
 //
 /////////////////////////////////////////////////////////////////////////////
+#include <iostream>
+
 #include "CProblemRunner.h"
 #include "CParameterCollection.h"
 #include "CParameter.h"
@@ -41,6 +43,8 @@ void CProblemRunner::Run(int Seed, const double v[])
  //
  QStringList arguments;
 
+arguments << QString::fromStdString(problem.sScriptName);
+
  for (std::list<std::string>::const_iterator i = problem.lsScriptParam.begin();
       i != problem.lsScriptParam.end();
       ++i)
@@ -69,7 +73,7 @@ void CProblemRunner::Run(int Seed, const double v[])
  //
  CurrentSeed = Seed;
  fError = false;
- proc.start(QString::fromStdString(problem.sScriptName), arguments);
+ proc.start(QString::fromStdString("python"), arguments);
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -78,7 +82,7 @@ void CProblemRunner::Run(int Seed, const double v[])
 void CProblemRunner::OnError(QProcess::ProcessError error)
 {
  fError = true;
- sError = proc.errorString().toStdString();
+ sError = "errpr\n";//proc.errorString().toStdString();
  emit Error(id, CurrentSeed);
 }
 

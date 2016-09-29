@@ -1,0 +1,7 @@
+*.o
+*.d
+*.pyc
+*.tmp
+*.cxx
+clop-console
+clop-gui

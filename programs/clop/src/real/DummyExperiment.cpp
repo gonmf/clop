@@ -30,7 +30,7 @@ int main()
 
  paramcol.Add(param1);
 
- CRealProblem problem("c:\\Python26\\python.exe DummyScript.py", paramcol);
+ CRealProblem problem("python DummyScript.py", paramcol);
 
  CResults results(paramcol.GetSize());
 

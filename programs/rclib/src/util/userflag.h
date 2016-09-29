@@ -16,6 +16,7 @@
 #define CDECL
 #endif
 
+#include <stdlib.h>
 #include <vector>
 
 class CUserFlag // flag

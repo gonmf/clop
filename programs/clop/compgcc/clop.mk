@@ -15,9 +15,9 @@ include $(DEPEND)
 #LDFLAGS := $(LDFLAGS) -lgsl -lgslcblas
 
 ifeq ($(OSTYPE),cygwin)
- LDFLAGS := $(LDFLAGS) -lboost_thread-gcc-mt -lboost_filesystem-gcc-mt
+ LDFLAGS := $(LDFLAGS) -lboost_thread-gcc -lboost_filesystem-gcc -lboost_system
 else
- LDFLAGS := $(LDFLAGS) -lboost_thread-mt -lboost_filesystem-mt
+ LDFLAGS := $(LDFLAGS) -lboost_thread -lboost_filesystem -lboost_system
 endif
 
 OBJECTS := $(OBJECTS) $(patsubst %.o, $(OUTDIR)/%.o,\
